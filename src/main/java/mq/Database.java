@@ -25,8 +25,12 @@ public class Database {
 	private Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:" + 
-						System.getenv().get("OPENSHIFT_MYSQL_DB_URL"));
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+			String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+			String name = "moviequotes";
+			String user = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+			String password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+			connection = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port +"/" + name, user, password);
 			System.out.println("Connection successful!");
 		} catch (Exception e) {
 			System.err.println("Cannot load SQL Driver!");
