@@ -51,12 +51,12 @@ public class Database {
 			System.out.println("SQL Error in Query!");
 			e.printStackTrace();
 		}
-		moviequotes.sort(new Comparator<MovieQuote>() {
-			@Override
-			public int compare(MovieQuote o1, MovieQuote o2) {
-				return -1;
-			}
-		});
+//		moviequotes.sort(new Comparator<MovieQuote>() {
+//			@Override
+//			public int compare(MovieQuote o1, MovieQuote o2) {
+//				return -1;
+//			}
+//		});
 		return moviequotes;
 	}
 	
